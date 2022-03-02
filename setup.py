@@ -3,10 +3,10 @@ import setuptools
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-from Uart16550_axi import version_str
+from uart16550_axi import version_str
 
 setuptools.setup(
-    name="Uart16550_axi",
+    name="uart16550_axi",
     version=version_str,
     author="Bilal Ahmed"
     author_email="bilal.ahmed@rapidsilicon.com",

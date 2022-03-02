@@ -82,7 +82,7 @@ class RTL2UART(Module, AutoDoc, AutoCSR):
             i_ri_pad_i=self.ri_pad_i,
             i_dcd_pad_i=self.dcd_pad_i,
         )
-        platform.add_source("/home/users/bilal.ahmed/litex_dev/Uart16550_axi/Uart16550_axi/verilog/uart_defines.v")
-        platform.add_source("/home/users/bilal.ahmed/litex_dev/Uart16550_axi/Uart16550_axi/verilog/timescale.v")
-        platform.add_source_dir(path="/home/users/bilal.ahmed/litex_dev/Uart16550_axi/Uart16550_axi/verilog/")
+        platform.add_source("/home/users/bilal.ahmed/litex_dev/uart16550_axi/uart16550_axi/verilog/uart_defines.v")
+        platform.add_source("/home/users/bilal.ahmed/litex_dev/uart16550_axi/uart16550_axi/verilog/timescale.v")
+        platform.add_source_dir(path="/home/users/bilal.ahmed/litex_dev/uart16550_axi/uart16550_axi/verilog/")
 

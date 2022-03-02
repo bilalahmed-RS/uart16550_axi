@@ -1,7 +1,7 @@
 import os.path
 __dir__ = os.path.split(os.path.abspath(os.path.realpath(__file__)))[0]
 data_location = os.path.join(__dir__, "verilog")
-src = "https://github.com/RapidSilicon/Uart16550_axi"
+src = "https://github.com/RapidSilicon/uart16550_axi"
 
 version_str = "1.1.0.post190"
 version_tuple = (1, 1, 0, 190)

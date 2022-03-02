@@ -1,2 +1,2 @@
-graft Uart16550_axi/verilog/
+graft uart16550_axi/verilog/
 global-exclude *.py[cod]
