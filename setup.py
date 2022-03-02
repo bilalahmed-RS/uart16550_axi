@@ -3,7 +3,7 @@ import setuptools
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-from pythondata_ip_uart16550 import version_str
+from Uart16550_axi import version_str
 
 setuptools.setup(
     name="Uart16550_axi",
