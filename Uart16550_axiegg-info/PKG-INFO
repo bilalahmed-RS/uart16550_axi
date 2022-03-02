@@ -1,0 +1,64 @@
+Metadata-Version: 2.1
+Name: pythondata-ip-uart16550
+Version: 1.1.0.post190
+Summary: Python module containing verilog files for UART 16550.
+Home-page: git@github.com:RapidSilicon/UART_16550.git
+Author: Asad Aleem
+Author-email: asad.aleem@rapidsilicon.com
+License: UNKNOWN
+Project-URL: Bug Tracker, git@github.com:RapidSilicon/UART_16550.git/issues
+Project-URL: Source Code, git@github.com:RapidSilicon/UART_16550.git
+Description: # pythondata-ip-UART16550
+        
+        Non-Python  files needed for the IP UART 16550 packaged into a Python module so they can be used with Python libraries and tools.
+        
+        This is useful for usage with tools like [LiteX](https://github.com/enjoy-digital/litex.git).
+        
+        The data files can be found under the Python module `pythondata_ip_uart16550`. The
+        `pythondata_ip_uart16550.data_location` value can be used to find the files on the file
+        system.
+        
+        Example of getting the data file directly;
+        ```python
+        import pythondata_ip_uart16550
+        
+        my_data_file = "abc.txt"
+        
+        with open(os.path.join(pythondata_ip_uart16550.data_location, my_data_file)) as f:
+            print(f.read())
+        ```
+        
+        Example of getting the data file using `litex.data.find` API;
+        ```python
+        from pythondata_ip_uart16550 import data_file
+        
+        my_data_file = "abc.txt"
+        
+        with open(data_file(my_data_file)) as f:
+            print(f.read())
+        ```
+        
+        
+        The data files come from [UART IP](https://github.com/RapidSilicon/UART_16550)
+        and are imported using `git subtrees` to the directory
+        [pythondata_ip_uart16550/verilog](pythondata_ip_uart16550/verilog).
+        
+        
+        ## Installing from git repository
+        
+        ## Manually
+        
+        You can install the package manually, however this is **not** recommended.
+        
+        ```
+        git clone https://github.com/RapidSilicon/UART_16550.git
+        cd pythondata-ip_uart16550
+        sudo python setup.py install
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: ISC License (ISCL)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
