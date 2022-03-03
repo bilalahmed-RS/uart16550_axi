@@ -4,10 +4,12 @@ from migen import *
 
 #from litex import get_data_mod
 from litex.soc.interconnect import axi
+from litex.soc.interconnect import wishbone
+
 from litex.soc.integration.soc import *
 from litex.soc.integration.doc import AutoDoc, ModuleDoc
 from litex.soc.integration.soc import SoCRegion
-
+from litex.soc.interconnect.axi import *
 
 class Open(Signal): pass
 class RTL2UART(Module, AutoDoc, AutoCSR):
@@ -16,7 +18,7 @@ class RTL2UART(Module, AutoDoc, AutoCSR):
         self.intro = ModuleDoc("""RTL2UART: A verilog RTL-based UART 16550 derived from the OpenCores.""")
 
 
-        self.bus  = bus = axi_lite.Interface(data_width=32)
+        self.bus  = bus = axi.AXILiteInterface(data_width=32)
         self.s_axi_aclk = ClockSignal()
         self.s_axi_aresetn = ResetSignal()
         self.s_axi_awvalid = Signal()
@@ -51,27 +53,27 @@ class RTL2UART(Module, AutoDoc, AutoCSR):
         # # #
 
         self.specials += Instance("axi4lite_uart_top",
-            i_s_axi_aclk=self.s_axi_aclk,
-            i_s_axi_aresetn=self.s_axi_aresetn,
-            i_s_axi_awvalid=self.s_axi_awvalid,
-            i_s_axi_awaddr=self.s_axi_awaddr,
-            i_s_axi_awprot=self.s_axi_awprot,
-            o_s_axi_awready=self.s_axi_awready,
-            i_s_axi_wvalid=self.s_axi_wvalid,
-            i_s_axi_wdata=self.s_axi_wdata,
-            i_s_axi_wstrb=self.s_axi_wstrb,
-            o_s_axi_wready=self.s_axi_wready,
-            o_s_axi_bvalid=self.s_axi_bvalid,
-            o_s_axi_bresp=self.s_axi_bresp,
-            i_s_axi_bready=self.s_axi_bready,
-            i_s_axi_arvalid=self.s_axi_arvalid,
-            i_s_axi_araddr=self.s_axi_araddr,
-            i_s_axi_arprot=self.s_axi_arprot,
-            o_s_axi_arready=self.s_axi_arready,
-            o_s_axi_rvalid=self.s_axi_rvalid,
-            o_s_axi_rdata=self.s_axi_rdata,
-            o_s_axi_rresp=self.s_axi_rresp,
-            i_s_axi_rready=self.s_axi_rready,
+            i_s_axi_aclk=ClockSignal(),
+            i_s_axi_aresetn=ResetSignal(),
+            i_s_axi_awvalid=bus.aw.valid,
+            i_s_axi_awaddr=bus.aw.addr,
+            i_s_axi_awprot=Open(),
+            o_s_axi_awready=bus.aw.ready,
+            i_s_axi_wvalid=bus.w.valid,
+            i_s_axi_wdata=bus.w.data,
+            i_s_axi_wstrb=bus.w.strb,
+            o_s_axi_wready=bus.w.ready,
+            o_s_axi_bvalid=bus.b.valid,
+            o_s_axi_bresp=bus.b.resp,
+            i_s_axi_bready=bus.b.ready,
+            i_s_axi_arvalid=bus.ar.valid,
+            i_s_axi_araddr=bus.ar.addr,
+            i_s_axi_arprot=Open(),
+            o_s_axi_arready=bus.ar.ready,
+            o_s_axi_rvalid=bus.r.valid,
+            o_s_axi_rdata=bus.r.data,
+            o_s_axi_rresp=bus.r.resp,
+            i_s_axi_rready=bus.r.ready,
             o_int_o=self.int_o,
             i_srx_pad_i=self.srx_pad_i,
             o_stx_pad_o=self.stx_pad_o,
