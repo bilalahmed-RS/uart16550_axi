@@ -18,7 +18,7 @@
 //////////////////////////////////
 
 // synopsys translate_off
-`include "timescale.v"
+//`include "timescale.v"
 // synopsys translate_on
 
 `define OKAY    2'b00
@@ -26,7 +26,7 @@
 `define SLERR   2'b10
 `define DECERR  2'b11
 // synopsys translate_off
-//`include "timescale.v"
+////`include "timescale.v"
 // synopsys translate_on
 
 /* verilator lint_off ASSIGNDLY */

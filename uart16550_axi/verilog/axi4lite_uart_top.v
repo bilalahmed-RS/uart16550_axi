@@ -18,7 +18,7 @@
 ////////////////////////////////////////
 
 // synopsys translate_off
-`include "timescale.v"
+//`include "timescale.v"
 // synopsys translate_on
 module axi4lite_uart_top #(
       parameter AXI4_ADDRESS_WIDTH = 5,

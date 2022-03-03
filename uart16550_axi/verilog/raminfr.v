@@ -83,7 +83,7 @@
 //  It's disabled by default. Define UART_HAS_BAUDRATE_OUTPUT to use.
 //
 // synopsys translate_off
-`include "timescale.v"
+//`include "timescale.v"
 // synopsys translate_on
 //Following is the Verilog code for a dual-port RAM with asynchronous read. 
 module raminfr   
